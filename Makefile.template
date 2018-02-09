@@ -2,19 +2,24 @@ CXX=g++
 CXXFLAGS=-Wall -std=c++11
 #CXXINCLUDES = 
 #CXXDEFINES =
-CXXSRC= filename.cpp
-CXXNAME=$(CXXSRC:.cpp=)
+CXXSRCS=$(wildcard *.cpp)
+CXXNAME=$(CXXSRCS:.cpp=)
 CXXOBJ=$(CXXSRC:.cpp=.o)
 
-all: executable
+.PHONY: all clean $(CXXNAME)
 
-executable: $(CXXNAME) $(CXXSRC)
+all: $(CXXNAME)
 
+$(CXXNAME):
+	$(CXX) $(CXXFLAGS) $@.cpp -o $@
+ 
 clean:
 	rm -fr $(CXXNAME)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $< 
+#	$(CXX) $(CXXFLAGS) $<.cpp $(CXXNAME)
+
+#%.o: %.cpp
+#	$(CXX) $(CXXFLAGS) $< 
 
 #	$(CXX) $(CXXFLAGS) $(CXXINCLUDES) $(CXXDEFINES) -c $< -o $@
 #	$(CXX) $(CXXFLAGS) -c $< -o $@
