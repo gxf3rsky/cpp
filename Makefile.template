@@ -1,0 +1,25 @@
+CXX=g++
+CXXFLAGS=-Wall -std=c++11
+#CXXINCLUDES = 
+#CXXDEFINES =
+CXXSRC= filename.cpp
+CXXNAME=$(CXXSRC:.cpp=)
+CXXOBJ=$(CXXSRC:.cpp=.o)
+
+all: executable
+
+executable: $(CXXNAME) $(CXXSRC)
+
+clean:
+	rm -fr $(CXXNAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $< 
+
+#	$(CXX) $(CXXFLAGS) $(CXXINCLUDES) $(CXXDEFINES) -c $< -o $@
+#	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+#
+# g++ -c argument is making .o file, so linking is not done
+# 
+
