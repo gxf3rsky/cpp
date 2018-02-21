@@ -8,12 +8,57 @@
 
 using namespace std;
 
+class mytype
+{
+public:
+	int a_;
+	string s_;
+
+	mytype();
+	mytype(const int &a, const string &s);
+
+	friend ostream& operator<<(ostream &os, const mytype &m);
+	// ostream& operator<<(ostream &os);
+	// ~mytype();
+
+};
+
+mytype::mytype()
+{
+	a_ = 0;
+	s_ = "";
+}
+
+mytype::mytype(const int &a, const string &s)
+{
+	a_ = a; 
+	s_ = s;
+}
+
+ostream& operator<<(ostream &os, const mytype &m)
+{
+	os << "[" << m.a_ << "][" << m.s_ << "]\n";
+	return os;
+}
+
 int main(int argc, char **argv)
 {
 	srand(time(NULL));				// Random seed taken from time.
 	// int r = rand() % 100;		// Range: 0 -> 99
 	// int r = rand() % 100 + 1;	// Range: 1 -> 100
 	// int r = rand() % 30 + 1985;	// Range: 1985 -> 2014
+
+	// Array.
+
+	array<mytype, 10> am = {mytype(99, "lool")};
+
+	cout << am.at(0);
+
+	// mytype t = {99, "lool"};
+	// cout << t;
+
+
+
 
 
 	// array<int, 10> ar;
