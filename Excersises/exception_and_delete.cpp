@@ -1,3 +1,6 @@
+// Once exception is thrown the memory is not deleted.
+// We have memory leak, this is why we should use smart pointers.
+
 #include <iostream>
 #include <stdexcept>
 
