@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-Wall -g -std=c++11 -fdump-class-hierarchy
+CXXFLAGS=-Wall -std=c++14
 #CXXINCLUDES = 
 #CXXDEFINES =
 CXXSRCS=$(wildcard *.cpp)
